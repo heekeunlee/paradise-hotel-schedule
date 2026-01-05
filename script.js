@@ -25,8 +25,9 @@ function showDay(dayNumber) {
     }
 }
 
-// Optional: Add simple scroll animation listener
+// Initialize listeners
 document.addEventListener('DOMContentLoaded', () => {
+    // Scroll animation observer
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -37,5 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.timeline-item, .info-card, .cta-card').forEach(el => {
         observer.observe(el);
+    });
+
+    // Add click event for timeline expansion
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            // Prevent triggering if clicking on links or buttons inside
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+
+            // Toggle active state
+            item.classList.toggle('expanded');
+
+            // Vibrate on expand
+            if (item.classList.contains('expanded') && window.navigator && window.navigator.vibrate) {
+                window.navigator.vibrate(5);
+            }
+        });
     });
 });
