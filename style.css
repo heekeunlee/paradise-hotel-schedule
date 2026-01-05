@@ -1,0 +1,342 @@
+:root {
+    --gold: #D4AF37;
+    --gold-light: #F4E8C1;
+    --purple: #603F83;
+    --purple-dark: #2A1B3D;
+    --bg: #FDFDFD;
+    --text: #333333;
+    --white: #FFFFFF;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --glass: rgba(255, 255, 255, 0.9);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Hero Section */
+.hero {
+    height: 35vh;
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+    background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* Luxury hotel vibe */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 27, 61, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--purple-dark);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-weight: 300;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 10px;
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.tab-btn {
+    border: none;
+    background: none;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #999;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-btn.active {
+    color: var(--purple);
+    border-bottom: 2px solid var(--purple);
+}
+
+/* Sections */
+main {
+    padding-bottom: 40px;
+}
+
+.section {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-title {
+    padding: 20px 20px 10px;
+    font-size: 1.6rem;
+    color: var(--purple);
+    text-align: center;
+}
+
+/* Timeline */
+.day-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.day-content.active {
+    display: block;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 25px;
+    background: var(--white);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform 0.2s;
+}
+
+.timeline-item:active {
+    transform: scale(0.98);
+}
+
+.timeline-item.highlight {
+    border-left: 5px solid var(--gold);
+    background: linear-gradient(to right, #fff9e6, #fff);
+}
+
+.time {
+    font-weight: 700;
+    color: var(--purple);
+    width: 60px;
+    font-size: 1.1rem;
+    border-right: 1px solid #eee;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--purple-dark);
+}
+
+.content p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.tip {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: var(--purple);
+    background: #f0ebf5;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-style: italic;
+}
+
+/* Info Cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.info-card h4 {
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.info-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Checklist */
+.checklist {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px var(--shadow);
+    margin: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.check-item:last-child {
+    border-bottom: none;
+}
+
+.check-item input {
+    display: none;
+}
+
+.custom-check {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--purple);
+    border-radius: 6px;
+    margin-right: 15px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.check-item input:checked + .custom-check {
+    background: var(--purple);
+}
+
+.check-item input:checked + .custom-check:after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.check-item input:checked ~ span:not(.custom-check) {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* CTA Section */
+.cta-card {
+    background: linear-gradient(135deg, var(--gold), #B8860B);
+    color: white;
+    padding: 25px;
+    border-radius: 25px;
+    margin: 20px;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.cta-card ul {
+    list-style: none;
+}
+
+.cta-card li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.cta-card li:before {
+    content: '⭐';
+    position: absolute;
+    left: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero { height: 30vh; }
+    .tab-btn { padding: 10px 15px; font-size: 0.9rem; }
+}
